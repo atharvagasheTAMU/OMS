@@ -1,12 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>OnlineMerchShopping</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-  </welcome-file-list>
+  
+	<servlet>
+		<servlet-name>GetServlet</servlet-name>
+		<servlet-class>com.test.servlets.GetServlet</servlet-class>
+		<init-param>
+			<param-name>URL</param-name>
+			<param-value>http://www.weatherservice.com</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+
+		<servlet-name>GetServlet</servlet-name>
+		<url-pattern>/getServlet</url-pattern>
+	</servlet-mapping>
+
+	<context-param>
+		<param-name>dbURL</param-name>
+		<param-value>jdbc:mysql://localhost:3306/hplus</param-value>
+
+	</context-param>
+	
+	
+
+
+	<servlet>
+		<servlet-name>HomeServlet</servlet-name>
+		<servlet-class>com.test.servlets.HomeServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>HomeServlet</servlet-name>
+		<url-pattern>/home</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>HomeServlet</servlet-name>
+		<url-pattern></url-pattern>
+	</servlet-mapping>
+	<session-config>
+	<session-timeout>60</session-timeout>
+	</session-config>
+	
+	<!--
+	<filter>
+	<filter-name>AuthenticationFilter</filter-name>
+	<filter-class>com.test.filters.AuthenticationFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	<filter-name>AuthenticationFilter</filter-name>
+	<url-pattern>/*</url-pattern>	
+	</filter-mapping>
+	-->
+
+	
 </web-app>
