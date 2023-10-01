@@ -22,8 +22,8 @@
 					<li><a href="login">login</a></li>
 					<li><a href="#people">people</a></li>
 					<li><a href="#search">search</a></li>
-					<li><a href="register">new user?</a></li>
-					<li><a href="redirect">linkedIn</a></li>
+					<li><a href="/registerUser">new user?</a></li>
+					<li><a href="books">Books</a></li>
 				</ul>
 				<!-- navbar -->
 			</div>

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.tamu.entity.User;
 import com.tamu.dao.ApplicationDao;
 
-@WebServlet("/registerUser")
+@WebServlet("/html/registerUser")
 public class RegisterUserServlet extends HttpServlet {
 
 	@Override

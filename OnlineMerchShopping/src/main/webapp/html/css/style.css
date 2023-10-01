@@ -372,8 +372,8 @@ em {
 	animation: a 1s
 }
 
-@
--webkit-keyframes a { 0%{
+/*@
+//-webkit-keyframes a { 0%{
 	-webkit-transform: translate3d(0, 100%, 0);
 	transform: translate3d(0, 100%, 0);
 	visibility: visible
@@ -398,6 +398,7 @@ to {
 }
 
 }
+*/
 @media screen and (min-width:600px) {
 	#products .product-list .product-item {
 		width: 33.33333%

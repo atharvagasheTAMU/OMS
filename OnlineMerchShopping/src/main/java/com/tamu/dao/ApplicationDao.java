@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import com.tamu.entity.Book;
 import com.tamu.entity.Product;
 import com.tamu.entity.User;
 
@@ -40,7 +40,89 @@ public class ApplicationDao {
 		}
 		return products;
 	}
+	
+	public List<Book> searchBook(String searchType, String searchString, int page) throws ClassNotFoundException {
+		Book book = null;
+		List<Book> books = new ArrayList<>();
+		int pageSize = page *10;
+		try {
+			Connection connection = DBConnection.getConnectionToDataBase();
 
+			String sql = "select * from books where " + searchType+ " like '%" + searchString + "%'offset " + pageSize + " limit 10;";
+
+			Statement statement = connection.createStatement();
+
+			ResultSet set = statement.executeQuery(sql);
+
+			while (set.next()) {
+				book = new Book();
+				book.setBookId(set.getInt("book_id"));
+				book.setBookName(set.getString("book_name"));
+				book.setBookDescription(set.getString("book_description"));
+				book.setGenre(set.getString("genre"));
+				book.setAuthorName(set.getString("author_id"));
+				books.add(book);
+
+			}
+
+		} catch (SQLException exception) {
+			exception.printStackTrace();
+		}
+		return books;
+	}
+	
+	public List<Book> searchBookByName(String searchString, int page) throws ClassNotFoundException {
+		Book book = null;
+		List<Book> books = new ArrayList<>();
+		int pageSize = page *10;
+
+		try {
+			Connection connection = DBConnection.getConnectionToDataBase();
+
+			String sql = "select * from books where book_name like '%" + searchString + "%'offset " + pageSize + " limit 10;";
+			System.out.println((sql));
+			Statement statement = connection.createStatement();
+
+			ResultSet set = statement.executeQuery(sql);
+
+			while (set.next()) {
+				book = new Book();
+				book.setBookId(set.getInt("book_id"));
+				book.setBookName(set.getString("book_name"));
+				book.setBookDescription(set.getString("book_description"));
+				book.setGenre(set.getString("genre"));
+				book.setAuthorName(set.getString("author_id"));
+				books.add(book);
+
+			}
+
+		} catch (SQLException exception) {
+			exception.printStackTrace();
+		}
+		return books;
+	}
+	
+	public int getTotalBooks(String searchType, String searchString) throws ClassNotFoundException {
+		int totalCount = 0;
+		try {
+			Connection connection = DBConnection.getConnectionToDataBase();
+
+			String sql = "select count(*) from books where " + searchType + " like '%" + searchString + "%'";
+
+			Statement statement = connection.createStatement();
+
+			ResultSet set = statement.executeQuery(sql);
+			
+			while (set.next()) {
+				totalCount = set.getInt(1);
+
+			}
+
+		} catch (SQLException exception) {
+			exception.printStackTrace();
+		}
+		return totalCount;
+	}
 	public int registerUser(User user) throws ClassNotFoundException {
 		int rowsAffected = 0;
 

@@ -17,22 +17,14 @@
 				<!-- branding -->
 
 				<ul class="navbar">
-					<li><a href="home">home</a></li>
-					<li><a href="orderHistory">order history</a></li>
-					<!-- <li><a href="viewProfile">view my profile</a></li> -->
-					<li><a href='<%=response.encodeURL("getProfileDetails")%>'>view	my profile</a></li>							
-					<li><a href='logout'>logout</a></li>
-					<li><a href="redirect">linkedIn</a></li>
-
+					<li><a href="dashboard">Dashboard</a></li>
+					<li><a href="orderHistory">Order History</a></li>	
+					<li><a href='logout'>Logout</a></li>
 				</ul>
 				<!-- navbar -->
 			</div>
 			<!-- container nav-elements -->
 		</nav>
-		<!-- <div class="container tagline">
-    <h1 class="headline">Our Mission</h1>
-    <p>We support and encourage <em>active and healthy</em> lifestyles, by offering <em>ethically sourced</em> and <em>eco-friendly</em> nutritional products for the <em>performance-driven</em> athlete.</p>
-  </div>container tagline -->
 	</header>
 
 <%-- 	<%-- <fmt:setBundle basename="com.test.resources.applicationResources"

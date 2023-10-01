@@ -61,7 +61,7 @@
 			<form action="addProducts" method="get">
 
 				<div class="productContainerItem">
-					<img id="pic1" src="<%=product.getProductImgPath()%>"> <input
+					<img id="pic1" src="<%=  product.getProductImgPath()%>"> <input
 						type="text" name="product" value="<%=product.getProductName()%>"><br />
 					<button>Add to Cart</button>
 				</div>
