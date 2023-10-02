@@ -15,7 +15,7 @@
 			<div class="container nav-elements">
 				<ul class="navbar">
 					<li><a href="dashboard">Dashboard</a></li>
-					<li><a href="orderHistory">Order History</a></li>
+					<li><a href="myBooks">My Books</a></li>
 					<li><a href='logout'>Logout</a></li>
 				</ul>
 			</div>
@@ -49,12 +49,13 @@
         <c:forEach var="book" items="${booksPage}">
             <div class="col-md-4 mb-4">
                 <div class="card">
-           
+           			<img src="images/book.png" class="card-img-top" alt="/images/book.png" style="width:128px;height:128px;">
                     <div class="card-body">
                         <h5 class="card-title">${book.bookName}</h5>
-                        <p class="card-text">${book.bookDescription}</p>
-                        <p class="card-text"><strong>Author:</strong> ${book.authorName}</p>
+<%--                         <p class="card-text">${book.bookDescription}</p>
+ --%>                        <p class="card-text"><strong>Author:</strong> ${book.authorName}</p>
                         <p class="card-text"><strong>Genre:</strong> ${book.genre}</p>
+                        <a href="bookDetails?bookId=${book.bookId}" class="btn btn-primary">View Details</a>
                     </div>
                 </div>
             </div>

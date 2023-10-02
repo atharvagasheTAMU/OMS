@@ -22,6 +22,7 @@ public class LoginServlet extends HttpServlet{
 		dispatcher.include(req, resp);
 	}
 	
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String username = req.getParameter("username");
@@ -38,7 +39,8 @@ public class LoginServlet extends HttpServlet{
 				if(isValidUser){
 			HttpSession session = req.getSession();
 			session.setAttribute("username", username);
-			req.getRequestDispatcher("/html/home.jsp").forward(req, resp);
+			RequestDispatcher rd = req.getRequestDispatcher("/html/dashboard");
+			rd.forward(req, resp);
 		}
 		else{
 			String errorMessage="Invalid Credentials, please login again!";

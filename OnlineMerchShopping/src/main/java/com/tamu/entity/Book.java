@@ -9,7 +9,15 @@ public class Book {
 	private double bookPrice;
 	private int quantity;
 	private String genre;
+	private String imageURL;
 	
+	
+	public String getImageURL() {
+		return imageURL;
+	}
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
+	}
 	public String getGenre() {
 		return genre;
 	}
